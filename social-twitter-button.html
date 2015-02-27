@@ -1,0 +1,50 @@
+<link href="bower_components/polymer/polymer.html" rel="import">
+
+<polymer-element name="social-twitter-button" attributes="text url hashtags via related size align count counturl lang dnt width height">
+  <template>
+    <iframe src="{{src}}" style="border: 0; overflow: hidden; width: {{width}}px; height: {{height}}px;"></iframe>
+    <style>
+      iframe {
+        width: "{{width}}px";
+        height: "{{height}}px";
+      }
+    </style>
+  </template>
+  <script>
+    var args = ['text', 'url', 'hashtags', 'via', 'related', 'size', 'align', 'count', 'counturl', 'lang', 'dnt'];
+    Polymer('social-twitter-button', {
+      text: null,
+      url: null,
+      hashtags: null,
+      via: null,
+      related: null,
+      size: null,
+      align: null,
+      count: null,
+      counturl: null,
+      lang: null,
+      dnt: null,
+
+      width: 140,
+      height: 28,
+
+      src: '',
+      ready: function() {
+        this.update()
+      },
+      attributeChanged: function(a, o, n) {
+        this.update()
+      },
+      update: function() {
+        var src = 'https://platform.twitter.com/widgets/tweet_button.html?';
+        for (var i in args) {
+          var arg = args[i]
+          if (this.getAttribute(arg)) {
+            src += arg + '=' + this.getAttribute(arg) + '&'
+          }
+        };
+        this.src = src;
+      }
+    });
+  </script>
+</polymer-element>
