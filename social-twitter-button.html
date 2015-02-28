@@ -1,4 +1,4 @@
-<link href="bower_components/polymer/polymer.html" rel="import">
+<link href="../polymer/polymer.html" rel="import">
 
 <polymer-element name="social-twitter-button" attributes="text url hashtags via related size align count counturl lang dnt width height">
   <template>
@@ -30,17 +30,12 @@
 
       src: '',
       ready: function() {
-        this.update()
-      },
-      attributeChanged: function(a, o, n) {
-        this.update()
-      },
-      update: function() {
         var src = 'https://platform.twitter.com/widgets/tweet_button.html?';
         for (var i in args) {
-          var arg = args[i]
-          if (this.getAttribute(arg)) {
-            src += arg + '=' + this.getAttribute(arg) + '&'
+          var arg = args[i];
+          var attr = this.getAttribute(arg);
+          if (attr) {
+            src += arg + '=' + encodeURIComponent(attr) + '&'
           }
         };
         this.src = src;

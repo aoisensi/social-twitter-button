@@ -1,6 +1,6 @@
 {
   "name": "social-twitter-button",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     "aoisensi"
   ],
@@ -12,7 +12,6 @@
   ],
   "description": "twitter share button polymer component",
   "dependencies": {
-    "polymer": "~0.5.5",
-    "core-component-page": "Polymer/core-component-page#~0.5.5"
+    "polymer": "~0.5.5"
   }
 }
