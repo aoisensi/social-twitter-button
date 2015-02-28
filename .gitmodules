@@ -1,0 +1,3 @@
+[submodule "bower_components/social-twitter-button"]
+	path = bower_components/social-twitter-button
+	url = git://github.com/aoisensi/social-twitter-button.git
