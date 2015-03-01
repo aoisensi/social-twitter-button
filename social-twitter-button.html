@@ -1,5 +1,11 @@
 <link href="../polymer/polymer.html" rel="import">
 
+<!--
+Twitter Button element
+
+@element social-twitter-button
+@demo https://aoisensi.github.io/social-twitter-button/demo-lite.html
+-->
 <polymer-element name="social-twitter-button" attributes="text url hashtags via related size align count counturl lang dnt width height">
   <template>
     <iframe src="{{src}}" style="border: 0; overflow: hidden; width: {{width}}px; height: {{height}}px;"></iframe>
@@ -11,7 +17,6 @@
     </style>
   </template>
   <script>
-    var args = ['text', 'url', 'hashtags', 'via', 'related', 'size', 'align', 'count', 'counturl', 'lang', 'dnt'];
     Polymer('social-twitter-button', {
       text: null,
       url: null,
@@ -30,6 +35,11 @@
 
       src: '',
       ready: function() {
+        this.update();
+      },
+
+      update: function() {
+        var args = ['text', 'url', 'hashtags', 'via', 'related', 'size', 'align', 'count', 'counturl', 'lang', 'dnt'];
         var src = 'https://platform.twitter.com/widgets/tweet_button.html?';
         for (var i in args) {
           var arg = args[i];
